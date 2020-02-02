@@ -1,0 +1,14 @@
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('liste-VG') }}">show Game</a> |
+        <a href="{{ path('liste-editeur') }}">show editeur</a> |
+        <a href="{{ path('liste-utilisateur') }}">show user</a> |
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('creation-VG') }}">create game</a> |
+        <a href="{{ path('creation-editeur') }}">create editeur</a> |
+    {% endif %}
+    <a href="{{ path('creation-utilisateur') }}">create user</a> |
+{% else %}
+    <a href="{{ path('creation-utilisateur') }}">create user</a> |
+{% endif %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Video Game {% endblock %}
+
+{% block body %}  
+{% include 'menu.html.twig' %}
+<h1>Video Game: </h1> 
+{{ form(VGForm) }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Editor {% endblock %}
+
+{% block body %}  
+{% include 'menu.html.twig' %}
+<h1>list Editor : </h1> 
+ 
+{% for editor in list %}
+<ul>
+    <li>{{ editor.companyName}}</li>
+    {% if is_granted('ROLE_USER') %}
+    <li><a href="{{ path('one-editeur') }}?id={{ editor.id }}">+</a></li>
+    {% endif %}
+</ul>
+{% endfor %}
+
+{% endblock %}

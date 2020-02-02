@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User {% endblock %}
+
+{% block body %}  
+{% include 'menu.html.twig' %}
+<h1>list user : </h1> 
+ 
+<ul>
+    <li>{{ VG.id }}</li>
+    <li>{{ VG.title }}</li>
+    <li>{{ VG.support }}</li>
+    <li>{{ VG.description }}</li>
+    <li>{{ VG.dateRelease|date("m/d/Y") }}</li>
+    <li>{{ VG.editor.id }}</li
+    
+    {% if is_granted('ROLE_ADMIN') %}
+    <li><a href="{{ path('supr-VG') }}?id={{ VG.id }}">supr</a></li>
+    <li><a href="{{ path('modife-VG') }}?id={{ VG.id }}">modife</a></li>
+    {% endif %}
+</ul>
+
+{% endblock %}

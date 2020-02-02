@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editor {% endblock %}
+
+{% block body %}  
+{% include 'menu.html.twig' %}
+<h1>Editor : </h1> 
+{{ form(editorForm) }}
+{% endblock %}

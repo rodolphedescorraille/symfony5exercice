@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editor {% endblock %}
+
+{% block body %}  
+{% include 'menu.html.twig' %}
+<h1>user : </h1> 
+ 
+<ul>
+    <li>{{ editor.id }}</li>
+    <li>{{ editor.companyName }}</li>
+    <li>{{ editor.nationality }}</li>
+    {% for videoGame in editor.videoGames %}
+    <li>{{ videoGame}}</li>
+    {% endfor%}
+    {% if is_granted('ROLE_ADMIN') %}
+    <li><a href="{{ path('supr-editeur') }}?id={{ editor.id }}">supr</a></li>
+    <li><a href="{{ path('modife-editeur') }}?id={{ editor.id }}">modife</a></li>
+    {% endif %}
+</ul>
+
+{% endblock %}

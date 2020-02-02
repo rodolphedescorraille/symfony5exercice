@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User {% endblock %}
+
+{% block body %}  
+{% include 'menu.html.twig' %}
+<h1>list user : </h1> 
+ 
+<ul>
+    <li>{{ user.id }}</li>
+    <li>{{ user.firstName}}</li>
+    <li>{{ user.name}}</li>
+    <li>{{ user.roles[0]}}</li>
+    
+    {% if is_granted('ROLE_USER') %}
+    <li><a href="{{ path('supr-utilisateur') }}?id={{ user.id }}">supr</a></li>
+    <li><a href="{{ path('modife-utilisateur') }}?id={{ user.id }}">modife</a></li>
+    {% endif %}
+</ul>
+
+{% endblock %}
